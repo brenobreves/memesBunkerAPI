@@ -7,8 +7,8 @@ export const prisma = new PrismaClient()
 const app = new Hono()
 prisma.$connect()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
+app.get('/heatbeat', (c) => {
+  return c.text('It lives!!!')
 })
 
 app.route('/user', user)
