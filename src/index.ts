@@ -1,14 +1,17 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { PrismaClient } from "@prisma/client"
+import { user } from './routes'
 
-const prisma = new PrismaClient()
+export const prisma = new PrismaClient()
 const app = new Hono()
 prisma.$connect()
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
+
+app.route('/user', user)
 
 const port = 3000
 console.log(`Server is running on port ${port}`)
