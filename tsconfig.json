@@ -11,11 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "sourceMap": true,
-    "incremental": true,
     "noEmit": false,
-    "paths": {
-      "@/*": ["./*"]
-    },
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src"],
