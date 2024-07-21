@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { loginSchema, registerSchema } from "../schemas";
 import bcrypt from 'bcrypt'
 import { createUser, findUserByEmail } from "../repository";
+import { validateUser } from "../services";
 
 export const user = new Hono
 
@@ -13,7 +14,10 @@ user.post('/signin', async (c) => {
             return c.text(error.message, 400)
         }
 
-        return c.text('signin successfull')
+        const userValidation = await validateUser(body.email, body.password)
+
+
+        return c.json({message: userValidation.message, auth: userValidation.auth}, userValidation.code)
 
     } catch(e) {
         return c.text(`${e}`, 500)
