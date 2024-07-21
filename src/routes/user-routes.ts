@@ -1,8 +1,9 @@
 import { Hono } from "hono";
-import { loginSchema, registerSchema } from "../schemas";
 import bcrypt from 'bcrypt'
-import { createUser, findUserByEmail } from "../repository";
-import { validateUser } from "../services";
+
+import { loginSchema, registerSchema } from "../schemas/userSchema";
+import { validateUser } from "../services/user-services";
+import { createUser, findUserByEmail } from "../repository/user-repositories";
 
 export const user = new Hono
 

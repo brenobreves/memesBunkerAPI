@@ -1,14 +1,14 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { PrismaClient } from "@prisma/client"
-import { user } from './routes'
+import { user } from './routes/user-routes'
 
 export const prisma = new PrismaClient()
 const app = new Hono()
 prisma.$connect()
 
-app.get('/heatbeat', (c) => {
-  return c.text('It lives!!!')
+app.get('/', (c) => {
+  return c.text('Hello Hono!')
 })
 
 app.route('/user', user)

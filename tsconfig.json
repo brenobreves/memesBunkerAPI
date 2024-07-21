@@ -1,13 +1,24 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "target": "ES2021",
+    "module": "CommonJS",                
+    "moduleResolution": "node",        
     "outDir": "./dist",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "rootDir": "./src",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-  }
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "incremental": true,
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,6 @@
 import { StatusCode } from "hono/utils/http-status";
-import { createSession, deleteUserSessions, findUserByEmail } from "../repository";
+import { findUserByEmail } from "../repository/user-repositories";
+import { createSession, deleteUserSessions } from "../repository/sessions-repositories"
 import bcrypt from 'bcrypt'
 
 export async function validateUser(email:string, password:string): Promise<{
