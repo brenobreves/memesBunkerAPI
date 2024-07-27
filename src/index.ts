@@ -3,11 +3,13 @@ import { Hono } from 'hono'
 import { PrismaClient } from "@prisma/client"
 import { user } from './routes/user-routes'
 import { memes } from './routes/memes-routes'
+import { cors } from 'hono/cors'
 
 export const prisma = new PrismaClient()
 const app = new Hono();
 prisma.$connect()
 
+app.use(cors())
 app.get('/', (c) => {
   return c.text("It's alive!")
 })
