@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import bcrypt from 'bcrypt'
 
-import { loginSchema, registerSchema } from "../schemas/userSchema";
+import { loginSchema, registerSchema } from "../schemas/user-schema";
 import { validateUser } from "../services/user-services";
 import { createUser, findUserByEmail } from "../repository/user-repositories";
 

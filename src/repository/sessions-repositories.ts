@@ -15,3 +15,11 @@ export async function deleteUserSessions(user_id: string) {
         }
     })
 }
+
+export async function getSessionById(id: string) {
+    return prisma.sessions.findUnique({
+        where:{
+            id: id
+        }
+    })
+}

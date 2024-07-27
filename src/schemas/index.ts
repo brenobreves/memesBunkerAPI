@@ -1,1 +1,2 @@
-export * from './userSchema'
+export * from './user-schema'
+export * from './memes-schema'

@@ -13,11 +13,27 @@ model User {
   password_hash String
   id            String    @id @default(uuid()) @db.Uuid
   Sessions      Sessions[]
+  Memes         Memes[]
 }
 
 model Sessions {
   id            String    @id @default(uuid()) @db.Uuid
   user_id       String    @db.Uuid
   user          User      @relation(fields: [user_id], references: [id])
-  createdAt     DateTime  @default(now())
+  created_at    DateTime  @default(now())
+}
+
+model Memes {
+  id            String    @id @default(uuid()) @db.Uuid
+  type          MemesTypes
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @default(now())
+  link          String  
+  user_id       String    @db.Uuid
+  user          User      @relation(fields: [user_id], references: [id])
+}
+
+enum MemesTypes {
+  image
+  link
 }
