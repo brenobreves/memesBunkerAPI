@@ -1,4 +1,4 @@
-import { getMemeById } from "../repository/memes-repositories"
+import { getMemeById } from "../repository"
 
 export async function validMeme(meme_id: string, user_id: string){
     if(!meme_id.match("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")) return false
