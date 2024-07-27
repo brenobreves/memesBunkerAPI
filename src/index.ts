@@ -2,7 +2,7 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { PrismaClient } from "@prisma/client"
 import { user } from './routes/user-routes'
-import { memes } from './routes/memes-routes'
+// import { memes } from './routes/memes-routes'
 import { CustomContext } from 'customContextTypes'
 
 export const prisma = new PrismaClient()
@@ -14,7 +14,7 @@ app.get('/', (c) => {
 })
 
 app.route('/user', user)
-app.route('/memes', memes)
+// app.route('/memes', memes)
 
 const port = 3000
 console.log(`Server is running on port ${port}`)

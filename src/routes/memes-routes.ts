@@ -1,10 +1,12 @@
-import { MemesTypes } from "@prisma/client";
-import { CustomContext } from "../customContextTypes";
 import { Hono } from "hono";
 import { bearerAuth } from "hono/bearer-auth"
-import { createMeme, deleteMeme, getUserMemes, updateMeme } from "../repository";
-import { createMemesSchema } from "../schemas";
-import { validMeme, AuthUser } from "../services";
+import { MemesTypes } from "@prisma/client";
+
+import { CustomContext } from "../customContextTypes";
+import { createMeme, deleteMeme, getUserMemes, updateMeme } from "../repository/memes-repositories";
+import { createMemesSchema } from "../schemas/memes-schema";
+import { validMeme } from "../services/memes-services";
+import { AuthUser } from "../services/auth-services";
 
 export const memes = new Hono
 
