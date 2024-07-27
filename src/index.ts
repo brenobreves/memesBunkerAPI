@@ -3,13 +3,14 @@ import { Hono } from 'hono'
 import { PrismaClient } from "@prisma/client"
 import { user } from './routes/user-routes'
 import { memes } from './routes/memes-routes'
+import { CustomContext } from 'customContextTypes'
 
 export const prisma = new PrismaClient()
-const app = new Hono()
+const app = new Hono();
 prisma.$connect()
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
+  return c.text("It's alive!")
 })
 
 app.route('/user', user)

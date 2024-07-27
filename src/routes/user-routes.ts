@@ -21,7 +21,7 @@ user.post('/signin', async (c) => {
         return c.json({message: userValidation.message, auth: userValidation.auth}, userValidation.code)
 
     } catch(e) {
-        return c.text(`${e}`, 500)
+        return c.text(`${JSON.stringify(e, null, 2)}`, 500)
     }
 })
 
@@ -46,6 +46,6 @@ user.post('/signup', async (c) => {
         return c.text(`New user created: ${JSON.stringify(newUser,null,2)}`)
 
     } catch(e) {
-        return c.text(`${e}`, 500)
+        return c.text(`${JSON.stringify(e, null, 2)}`, 500)
     }
 })
