@@ -9,13 +9,11 @@ export const prisma = new PrismaClient()
 const app = new Hono();
 prisma.$connect()
 
-app.use(cors())
-
 const corsOptions = {
-  origin: '*', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: false,
+  origin: '*',
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+  maxAge: 600,
 };
 
 app.use(cors(corsOptions))
