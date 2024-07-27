@@ -10,6 +10,16 @@ const app = new Hono();
 prisma.$connect()
 
 app.use(cors())
+
+const corsOptions = {
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+};
+
+app.use(cors(corsOptions))
+
 app.get('/', (c) => {
   return c.text("It's alive!")
 })
